@@ -14,10 +14,16 @@ python validate_ggg.py -i akkadian.yml
 ```
 
 And this will validate all of the GGG files in the currently directory (assuming that all `*.yml` files are GGG)
-```
+```bash
 python validate_ggg.py -b
 ```
 
 ## Parsing and Conversion to BILOU Representation
 
 The library `ggg2bilou.py` implements the parsing of the `ur` and `gl` files of a GGG file and converts them to a BILOU linearization suitable for consumption or generation by a sequence model.
+
+```python
+> import ggg2bilou
+> ggg2bilou.merged_form_gloss("f{oo>ee}t", "foot{PL}")
+[Character(char='f', tag='B', op='S', span=0, gloss='foot'), Character(char='o', tag='I', op='D', span=0, gloss='foot'), Character(char='o', tag='I', op='D', span=0, gloss='foot'), Character(char='e', tag='B', op='A', span=1, gloss='PL'), Character(char='e', tag='L', op='A', span=1, gloss='PL'), Character(char='t', tag='L', op='S', span=0, gloss='foot')]
+```
